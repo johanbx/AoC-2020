@@ -1,5 +1,3 @@
-const { stdout } = require("process");
-
 const list = process.env.PUZZLE.split("\n");
 
 const answer = () => {
