@@ -1,6 +1,6 @@
 const list = process.env.PUZZLE.split("\n");
 
-const answer = () => {
+module.exports = () => {
   const slopes = [
     [1, 1],
     [3, 1],
@@ -19,5 +19,3 @@ const answer = () => {
     return acc * trees;
   }, 1);
 };
-
-console.log(answer());

@@ -1,21 +1,23 @@
-const { fstat } = require("fs");
-
 const fs = require("fs");
 
 const run = (script, puzzle) => {
   process.env.PUZZLE = require("fs").readFileSync(
     "./inputs/" + puzzle + ".txt"
   );
-  console.log(script + ": ");
+  console.log(`== ${script} ==`);
+  const func = require("./days/" + script);
   const start = process.hrtime();
-  require("./days/" + script);
+  const res = func();
   const hrend = process.hrtime(start);
-  console.info("Execution time (hr): %ds %dms", hrend[0], hrend[1] / 1000000);
+  console.log("Result:", res);
+  console.log("Time: %ds %dms", hrend[0], hrend[1] / 1000000);
 };
 
 if (process.argv[2] === "all") {
+  console.log();
   fs.readdirSync("./days").map((name) => {
     run(name, name.slice(0, -4));
+    console.log();
   });
 } else if (process.argv.length !== 4) {
   console.log(

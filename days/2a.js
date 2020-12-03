@@ -1,6 +1,6 @@
 const list = process.env.PUZZLE.split("\n");
 
-const answer = () => {
+module.exports = () => {
   return list.reduce((acc, curr) => {
     const [range, letter, pass] = curr.split(" ");
     const [min, max] = range.split("-").map(Number);
@@ -13,5 +13,3 @@ const answer = () => {
     return (acc += occurences >= min && occurences <= max ? 1 : 0);
   }, 0);
 };
-
-console.log(answer());

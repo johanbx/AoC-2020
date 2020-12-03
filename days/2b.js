@@ -1,6 +1,6 @@
 const list = process.env.PUZZLE.split("\n");
 
-const answer = () => {
+module.exports = () => {
   return list.reduce((acc, curr) => {
     let [range, letter, pass] = curr.split(" ");
     letter = letter.slice(0, -1);
@@ -11,5 +11,3 @@ const answer = () => {
     return (acc += a + b === 1 ? 1 : 0);
   }, 0);
 };
-
-console.log(answer());
