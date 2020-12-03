@@ -6,7 +6,7 @@ const run = (script, puzzle) => {
   process.env.PUZZLE = require("fs").readFileSync(
     "./inputs/" + puzzle + ".txt"
   );
-  process.stdout.write(script + ": ");
+  console.log(script + ": ");
   const start = process.hrtime();
   require("./days/" + script);
   const hrend = process.hrtime(start);
